@@ -11,6 +11,7 @@ fi
 
 if [ "$szam" -eq 2 ] || [ "$szam" -eq 3 ]; then
     echo "$szam prim"
+    exit 0
 fi
 
 for ((i=2; i<"$szam/2"; i++)); do
