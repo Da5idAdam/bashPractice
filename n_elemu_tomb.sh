@@ -16,4 +16,25 @@ for ((i=0; i<szam; i++)); do
     veletlentomb+=("$veletlenszam")
 done
 
+maximum=${veletlentomb[0]}
+minimum=${veletlentomb[0]}
+
+
+for i in "${!veletlentomb[@]}"; do
+    if [ "${veletlentomb[i]}" -gt "$maximum" ]; then 
+        maximum=${veletlentomb[i]}
+    fi
+
+    if [ "${veletlentomb[i]}" -lt "$minimum" ]; then 
+        minimum=${veletlentomb[i]}
+    fi
+done
+
+for i in "${!veletlentomb[@]}"; do
+    osszeg=$(("$osszeg" + "${veletlentomb[i]}"))
+done
 echo "${veletlentomb[*]}"
+
+echo "A maximum ertek: $maximum"
+echo "A minimum ertek: $minimum"
+echo "Az elemek osszege: $osszeg"
